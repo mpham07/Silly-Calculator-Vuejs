@@ -168,7 +168,6 @@
         if (this.sOperator === '-') nResult = nLeftOperand - nRightOperand;
         if (this.sOperator === 'x') nResult = nLeftOperand * nRightOperand;
         if (this.sOperator === '/') nResult = nLeftOperand / nRightOperand;
-        console.log(nResult);
         this.fsShowDisplay(nResult);
         this.fResetAllButDisplayText();
       },
@@ -176,7 +175,7 @@
         return Number(sValue);
       },
       fsShowDisplay: function (value) {
-        if (isNaN(value) || value === Infinity) this.sDisplayText = 'Error';
+        if (isNaN(value) || value === Infinity || value === -Infinity) this.sDisplayText = 'Error';
         else this.sDisplayText = String(value).substring(0, this.iMaxLengthDisplay);
       },
       fRestartDisplay: function () {
